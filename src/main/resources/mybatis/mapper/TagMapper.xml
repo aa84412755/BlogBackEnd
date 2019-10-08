@@ -3,11 +3,15 @@
 <mapper namespace="com.runner.blog.dao.TagDao">
     <!--根据id查询标签-->
     <select id="selectTagId" resultType="com.runner.blog.entity.Tag">
-        select * from tag where id = ${id}
+        select * from tag where id = #{id}
     </select>
 
     <select id="selectAllTag" resultType="com.runner.blog.entity.Tag">
         select * from tag
+    </select>
+
+    <select id="vagueTag" resultType="com.runner.blog.entity.Tag">
+        select * from tag where tagName like concat('%',#{tagName},'%')
     </select>
 
 </mapper>

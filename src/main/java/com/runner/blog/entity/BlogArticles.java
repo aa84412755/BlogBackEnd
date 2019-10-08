@@ -10,7 +10,7 @@ import java.util.Date;
  * @date 2019/9/4 14:44
  */
 @Data
-public class Blogarticles {
+public class BlogArticles {
     /**
      * 文章id
      */

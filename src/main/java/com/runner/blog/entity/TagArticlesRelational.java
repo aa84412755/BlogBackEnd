@@ -7,7 +7,7 @@ import java.util.Date;
  * @author 郭永江
  */
 @Data
-public class Tagarticlesrelational {
+public class TagArticlesRelational {
     /**
      * 自增id
      */
