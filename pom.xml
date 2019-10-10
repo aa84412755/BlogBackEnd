@@ -8,10 +8,10 @@
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.runner</groupId>
     <artifactId>blog</artifactId>
     <packaging>war</packaging>
-    <name>blog</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -26,6 +26,7 @@
             <artifactId>druid</artifactId>
             <version>1.1.12</version>
         </dependency>
+
 
         <!-- 分页插件 -->
         <!--<dependency>
@@ -58,30 +59,47 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 移除嵌入式tomcat插件 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+
+
+
+               <!-- 去掉默认日志，加载别的日志，切换log4j2日志读取-->
+               <exclusion>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-logging</artifactId>
+               </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
-            <!-- 包含 mvc ,aop 等jar资源 -->
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-            <exclusions>
-                <!-- 去掉默认日志，加载别的日志，切换log4j2日志读取 -->
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- 配置log4j2 -->
+
+        <!--配置log4j2-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-        <!--加上这个才能辨认到log4j2.yml文件-->
+        <!-- 加上这个才能辨认到log4j2.yml文件-->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
@@ -124,6 +142,8 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.60</version>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -133,6 +153,9 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <!--war包名称-->
+        <finalName>blog</finalName>
     </build>
 
 </project>

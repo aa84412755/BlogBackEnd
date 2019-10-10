@@ -1,6 +1,6 @@
 package com.runner.blog.model;
 
-import com.runner.cons.RuunerCons;
+import com.runner.blog.cons.BlogCons;
 
 import java.io.Serializable;
 
@@ -25,8 +25,8 @@ public class DataResponse implements Serializable {
 
     public DataResponse() {
         this.setCount(0);
-        this.setCode(RuunerCons.CODE_SUCCESS);
-        this.setMsg(RuunerCons.MSG_SUCCESS);
+        this.setCode(BlogCons.CODE_SUCCESS);
+        this.setMsg(BlogCons.MSG_SUCCESS);
     }
 
     public String getCode() {

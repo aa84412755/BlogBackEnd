@@ -10,9 +10,9 @@ spring:
   datasource:
     # 数据源基本配置
     username: root
-    password: 84412755
+    password: qwer1234
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://47.102.117.137:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource
     # 数据源其他配置
     #初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
@@ -48,4 +48,4 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
 logging:
   config:
-  classpath: log4j2.xml
+   classpath: log4j2.xml
